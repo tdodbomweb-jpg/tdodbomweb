@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
 
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Tdodbomweb</title>
@@ -9,122 +10,186 @@
 <style>
 
 body{
-margin:0;
-font-family:Arial;
-background:linear-gradient(#000000,#3b210f);
-color:white;
-text-align:center;
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(#000000,#3b210f);
+    color:white;
+    text-align:center;
 }
 
 .container{
-
-margin:30px auto;
-padding:25px;
-max-width:400px;
-background:#1a0d05;
-border:3px solid #d4af37;
-border-radius:25px;
-box-shadow:0 0 25px #d4af37;
-
+    width:90%;
+    max-width:420px;
+    margin:30px auto;
+    background:#1a0d05;
+    border:3px solid #d4af37;
+    border-radius:25px;
+    padding:20px;
+    box-shadow:0 0 25px #d4af37;
 }
 
 .logo{
-
-width:220px;
-border-radius:20px;
-
+    width:150px;
+    height:150px;
+    object-fit:cover;
+    border-radius:50%;
+    border:3px solid #d4af37;
+    box-shadow:0 0 20px #d4af37;
+    margin-bottom:20px;
 }
 
 h1{
+    color:#FFD700;
+    font-size:38px;
+    margin-bottom:20px;
+    text-shadow:0 0 10px #FFD700;
+}
 
-color:#d4af37;
-font-size:38px;
+.player{
+    position:relative;
+    background:url("banner.jpeg.jpeg") center center;
+    background-size:cover;
+    border-radius:20px;
+    overflow:hidden;
+    padding:25px;
+}
 
+.player::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.60);
+}
+
+.player *{
+    position:relative;
+    z-index:1;
 }
 
 .live{
-
-color:red;
-font-size:24px;
-font-weight:bold;
-
+    color:#FFD700;
+    font-size:26px;
+    font-weight:bold;
+    text-shadow:
+        0 0 5px #FFD700,
+        0 0 10px #FFD700,
+        0 0 20px #FFA500;
+    animation:pulse 1.5s infinite;
+    margin-bottom:15px;
 }
 
-button{
-
-background:#d4af37;
-color:black;
-font-size:22px;
-font-weight:bold;
-padding:15px 35px;
-border:0;
-border-radius:30px;
-
+@keyframes pulse{
+    0%{opacity:1;}
+    50%{opacity:.5;}
+    100%{opacity:1;}
 }
 
-audio{
+.equalizer{
+    display:flex;
+    justify-content:center;
+    gap:4px;
+    margin-bottom:15px;
+}
 
-width:100%;
-margin-top:20px;
+.equalizer span{
+    width:5px;
+    height:20px;
+    background:#FFD700;
+    border-radius:5px;
+    animation:bars 1s infinite;
+}
 
+.equalizer span:nth-child(2){animation-delay:.2s;}
+.equalizer span:nth-child(3){animation-delay:.4s;}
+.equalizer span:nth-child(4){animation-delay:.6s;}
+.equalizer span:nth-child(5){animation-delay:.8s;}
+
+@keyframes bars{
+    0%,100%{height:10px;}
+    50%{height:30px;}
 }
 
 .info{
+    color:white;
+    font-size:18px;
+}
 
-color:#e0b86a;
-font-size:18px;
+audio{
+    width:100%;
+    margin:20px 0;
+}
 
+button{
+    background:#FFD700;
+    color:black;
+    border:none;
+    border-radius:35px;
+    padding:15px 35px;
+    font-size:20px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 0 15px #FFD700;
+}
+
+button:hover{
+    transform:scale(1.05);
+    box-shadow:0 0 30px #FFD700;
+}
+
+.footer{
+    margin-top:20px;
+    color:#d4af37;
+    font-size:14px;
 }
 
 </style>
 
 </head>
 
-
 <body>
-
 
 <div class="container">
 
-
-<img class="logo" src="logo.png">
-
+<img src="logo.png" class="logo" alt="Logo">
 
 <h1>Tdodbomweb</h1>
 
+<div class="player">
 
 <div class="live">
-🔴 AO VIVO
+📡 AO VIVO
 </div>
 
+<div class="equalizer">
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+</div>
 
 <p class="info">
-A melhor programação para você
+🎶 A rádio que toca seu coração
 </p>
 
-
 <audio controls>
-
-<source src="https://tdodbomweb.out.airtime.pro/tdodbomweb_a">
-
+<source src="https://tdodbomweb.out.airtime.pro/tdodbomweb_a" type="audio/mpeg">
 </audio>
 
-
-<br><br>
-
-
-<button>
-📻 Ouvir Agora
-</button>
-
+<button>📻 Ouvir Agora</button>
 
 <p class="info">
 🎵 Tocando agora
 </p>
 
-
 </div>
 
+<div class="footer">
+© 2026 Tdodbomweb - Todos os direitos reservados.
+</div>
+
+</div>
 
 </body>
 </html>
